@@ -1,0 +1,14 @@
+Luftströmung in den Luftwegen/Atemwegen:
+1. 	Die Strömung ist als Gasströmung kompressibel. Das bereitgestellte Tidalvolumen kann sich z.B. um bis zu 10% verkleinern. 
+	Dennoch darf diese Luftströmung als kompessibel angenommen werden. Quellenbeleg hinzufügen.
+2.	Die auf natürlichem Wege eingeatmete Luft wird in den oberen Atemwegen erwärmt und befeuchtet. Das ist notwendig, damit die 
+	mukoziliäre Clearence (Reinigung des Respirationstraktes) funktionieren kann. Bei maschineller Beatmung verhindert die Wand des
+	Endotrachealtubus die natürliche Erwärmung und Befeuchtung der eingeatmeteten Luft. Das heißt, dass die Luft aus der Maschine
+	vorgewärmt und befeuchtet sein muss, wenn die Beatmung invasiv per Endotrachealtubus oder Trachealkanüle erfolgt.
+Konsequenzen für die Berechnung von Druck und Volumenstrom:
+1. 	Aus (1) folgt, dass die Formeln und Berechnungsmethoden für inkompressible Strömungen verwendet werden können. U.a. kann der
+	häufig benutzte Satz von Bernoulli verwendet werden.
+2.	Aus (2) folgt, dass die Stoffwerte wie Dichte und Viskosität für feuchte Luft verwendet werden sollten. Werden Stoffwerte
+	für trockene Luft verwendet, muss der Fehler abgeschätzt werden.
+	
+

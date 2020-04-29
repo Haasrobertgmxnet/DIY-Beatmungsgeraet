@@ -1,0 +1,55 @@
+Strömunsmechanik für Atemwege und machinelle Beatmung
+
+Gesetz von Hagen-Poiseuille
+Für newtonsche Fluide, die kreisrunde Rohre durchströmen, ist das Hagen-Poiseuillesche Gesetz der Standard.
+Es kann aus den Navier-Stokesschen Gleichungen hergeleitet werden.
+Voraussetzung: aminare, stationäre Strömung in geraden, kreisrunden Rohren mit ausgebildetem Strömungsprofil.
+Es wird auch für Luft/Atemgas benutzt.
+Es stellt einen Zusammenhang zwischen Volumenstrom und anliegender Druckdifferenz her.
+Aus gegebenem Volumenstrom kann die Druckdifferenz über eine Strecke L berechnet werden und umgekehrt. 
+	* Damit kann ggf. der Differenzdruck über den Volumenstrom gesteuert werden und umgekehrt.
+	* Damit könnten Sensoren geprüft, kalibriert oder eingespart werden.
+Es gilt nur für stationäre, laminare und voll ausgebildete Strömungen.
+Es gilt für gerade Rohre, wird aber für die Atemwege benutzt.
+Bei stark gekrümmten Rohrstrecken wäre ein Anpassungsfaktor denkbar.
+Die Gleichung für elliptische Rohre verallgemeinert werden.
+
+Die Größen:
+L: Länge/Längenabschnitt der Rohrstrecke in m.
+R. Durchmesser des Rohrs in m. (mm in m umrechnen)
+Delta P: über L anliegende Druckdifferenz in Pa.
+eta: dynamische Viskosität von Atemgas/Luft in Pa*s.
+dV/dt: Volumenstrom des Atemgases/der Luft in m*m*m/s (l/min umrechnen)
+pi: die Kreiszahl, also Umfang= 2*pi*R 0 approx 3.14...
+
+Die Formel:
+pi * R^4 * Delta P = 8 * eta * L * dV/dt
+pi*R^4 = pi*R*R*R*R 
+Mit Vt = Ti * dV / dt gilt dann auch
+pi * R^4 * Delta P = 8 * eta * L * Vt / Ti, wobei
+Vt das Tidalvolumen und Ti die Inspirationszeit.
+
+Laminare vs turbulente Strömung, die Reynoldszahl
+Laminare Strömungen kann man sich als schichtartig aufgebaute, langsam fließende, Strömungen vorstellen. Die Richtung (d.h. der Geschwindigkeitsvektor) ist in jedem Punkt wohldefiniert.
+Die innere Reibung des Fluids führt zur Ausbildung eines typischen Strömungsprofils.
+Turbulente Strömungen entstehen bei höheren Geschwindigkeiten. Es treten Wirbel auf und der Geschwindigkeitsvektor ist nicht mehr wohldefiniert. Dennoch gibt es ein Geschwindigkeitsprofil, das
+die Berechnung einer mittleren Geschwindigkeit erlaubt. Bei turbulenten Strömungen ist unter sonst gleichen Bedingungen der Druckverlust signifikant höher und das Gesetz von Hagen-Poiseuille gilt dafür nicht.
+Zwischen laminarar und turbulenter Strömung gibt es häufig einen Übergangsbereich. Das Umschllagen von laminarer in turbulente Strömung bei steigender Strömungsgeschwindigkeit hängt von vielen Faktoren ab:
+* Viskosität des Fluids,
+* Glattheit der Wand,
+* Strömungsgeschwindigkeit,
+* Geometrie, bspw. verhalten sich gerade und gekrümmte Rohre stark uterschiedlich, bei letzteren setzt Turbulenz u.U. deutlich später ein.
+Die Reynoldszahl Re ist eine dimensionslse Größe und ein Maß dafür, ob die Strömung lamninar oder turbulent ist.
+Es gilt:
+Re = rho * u * Dh / eta,
+dabei ist
+rho: Dichte in gg / m^3,
+u: (mittlere) Strömungsgeschwindigkeit in m/s,
+Dh: hydraulischer Durchmesser in m, bei Kreisen Dh = D = 2*R,
+eta: dynamische Viskosität von Atemgas/Luft in Pa*s.
+u = (dV/dt) / (pi*r^2)
+
+Re klein (oder unterhalb kritischem Wert): Strömung laminarar
+Re groß (oder oberhalb kritischem Wert): Strömung turbulent
+
+

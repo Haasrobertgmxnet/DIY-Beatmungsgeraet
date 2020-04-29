@@ -1,0 +1,133 @@
+Video "e-Learning: Essential variables and mechanical breath types"
+von Hamilton Medical
+Quelle: https://www.youtube.com/watch?v=gdf1PjP3jVI
+
+Plan:
+1. Fünf Variablen:
+Triggering: categorical Variable (enum class ...) mit der Wertemenge= {Time Tr., Pressure Tr., Flow Tr.}
+Cycling: categorical Variable mit den Wertemenge= {Time Cyc., Flow Cyc.}
+Controlling: categorical Variable mit den Wertemenge= {Volume C., Pressure C., Adaptive C., Hybrid C.}
+Targeting: categorical Variable mit den Wertemenge= {Tidalvolumen (im Falle Volume C.), Inspiratory Presure (im Falle Pressure C.), Target/Ziel-Tidalvolumen (Im Falle Adaptive C.)}
+PEEP: positive real number. Positive End Exspiration  Pressure. Das ist auch der Baseline Pressure, der (etwas) über dem Atmosphärendruck liegt.
+2. Acht Beatmungsmoden(?), die sich aus den Kombinationen der fünf Variablen ergeben.
+
+Größen:
+Ti Inspiratory time (s)
+Te Expiratory time (s)
+BCT Breath cycle time (s) = Ti + Te : Zeit zwischen zwei aufeinnderfolgenden Triggering-Punkten
+Der Beatmungszyklus startet mit Triggering und anschließend Ti
+Am Ende von Ti steht das Cycling
+Te schließt sich an und danch beginnt der Zyklus von vorn mit Triggering und Ti.
+Vt: Tidalvolumen
+ 
+1.1 Triggering
+1.1.1 Time Triggering (Machine triggering): Algorithmus-/maschinengetrieben
+Zu messende Größe: m.E. keine
+Set rate (breaths/min): gewünschte Atemzüge pro Minute
+BCT wird berechnet nach BCT(s) = (60 s/min) / (Set rate (breaths/min)), vgl Umrechnung Frequenz <-> Wellenlänge
+Nach jedem Ande eines BCT liefert die Maschine Luft/Gas zum Einatmen.
+Die Set rate kann ggf. vom Patienten verändert werden.
+1.1.2 Pressure Triggering (Patient triggering)
+Zu messende Größe: Druck p (ist p>=Schwellwert/Threshold?)
+Die Einatmung des Patienten verursachen einen Unterdruck, so dass der Atemwegsdruck unterhalb des Baseline Pressures/PEEP liegt.
+Fällt der Atemwegsdruck auf einen Schwellwert/Threshold, wird das Beatmungsgerät getriggert und gibt Atemgas ab.
+Die Druckdifferenz zwischen PEEP/Baseline und Schwellwert/Threshold heißt Sensitivity (Druck). Der Wert bekommt ein Munuszeichen.
+Die Sensitivity kann eingestellt werden. Je größer der Wert (also je kleiner dessen Betrag ist), desto schneller wird das Triggering ausgelöst und ugekehrt.
+1.1.3 Flow Triggering (Patient triggering)
+Zu messende Größe: Flow/Volumenstrom im Schlauchsystem oder Atemweg.
+Drei Orte für Messung:
+Flow A: inspiratorischer Schenkel des Beatmungssystems
+Flow B: expiratorischer Schenkel des Beatmungssystems
+Airway flow: der am Atemweg gemessene Gasdurchsatz
+Phasen der Exspiration :
+Early Exspiration : Anfangs hoher Gasdurchsatz, Der Atemwegsdruck fällt durch starkes Ausströmen stark ab
+	Das Ventil am inspiratorischen Schenkel schließt, das Ventil am expiratorischen Schenkel öffnet vollständig, Luft wird ausgeatmet.
+Later Exspiration : Durch starkes Ausströmen ist der Atemwegsdruck stark abgefallen. Das Beatmungsgerät versucht, den Baseline Pressure/PEEP zu erhalten. 
+	Dafür strömt das Gas über den inspiratorischen Schenkel über den expiratorischen Schenkel zur Umgebung.
+	Atemwegsdruck, Druck im inspiratorischen Schenkel und expiratorischen Schenkel sind schließlich auf Niveau Baseline/PEEP. 
+	Der Durchatz im inspiratorischen Schenkel ist gleich dem Durchatz im expiratorischen Schenkel.
+	Der Durchsatz im Atemweg ist Null.
+	Atmet der Patient ein, baut sich Unterdruck im Atemweg auf und Gas strömt nun vom inspiratorischen Schenkel in die Atemwege.
+	Damit gilt dann Durchatz im inspiratorischen Schenkel = Durchatz im expiratorischen Schenkel + Durchsatz im Atemweg bzw.
+	Durchatz im inspiratorischen Schenkel - Durchatz im expiratorischen Schenkel > 0.
+	Sobald Durchatz im inspiratorischen Schenkel - Durchatz im expiratorischen Schenkel > threshold > 0, wird die maschielle Beatmung getriggert.
+	Flow trigger sensitivity = threshold - base flow (zero flow)
+	Die Flow trigger sensitivity  ist ein wählbarer Parameter.
+	Je kleiner dieser Wert, desto empfindlicher reagiert das System, bzw. desto eher wird die maschinelle Beatmung getriggert. Und Vice versa.
+1.1.4 Das Patient triggering kann fehlschlagen:
+A: Die maschinelle Beatmung wird nicht getriggert: Die gewählte Sensitivity passt nicht, weil zu klein oder der Patient atmet nicht ausreichend ein.
+B: Auto-triggering: Beatmung wird getriggert, wenn der Patient nicht inhaliert/einatmet. Schnelle, rhythmische maschinelle Atemhübe. 
+	Triggering passiert nicht durch Patienten, sondern durch pneumatische Artefakte wie Leckagen, Kondenswasser im Schlauchsystem, oder Herzfrequenz.
+	Weitere mögliche Ursache: Der Sensitivity-Parameter ist zu empfindlich, weil zu groß, eingestellt.
+	
+1.2 Cycling
+Time cycling anf low flow cycling are commonly used cycling mechanisms.
+1.2.1 Time Cycling/Zeitsteuerung (passive patients)
+Drei Möglichkeiten:
+a: Setze Ti in sek. Nach ABlauf von Ti schaltet das Gerät von Inspiration auf Exspiration um.
+b: Zu vorgegebenem BCT wird das Verhältnis I:E = Ti : Te gesetzt. Wenn nach 1.1.1 eine Set rate vorgegeben ist, kann nach der Formel BCT berechnet werden und BCT entspreched I:E aufgeteilt werden.
+	D. h. Das Verhältnis von Ti zu Te skaliert gleichmäßig bei Änderung der Set rate.
+c: Peak Flow: Zuführung einer konstanten Menge Atemgas nach der Formel Vt= Peak flow * Ti. Wird Vt erhöht, erhöht sich Ti in gleichem Maße. Wird Peak flow gesenkt, erhöht sich Ti ebenfalls. Vice Versa.
+
+1.2.2 Flow Cycling (active patients)
+Benutzt den Zusammenhang Inspiratory flow über die Zeit. Inspiratory flow wird hier in % von Peak flow aufgetragen.
+Der Inspiratory flow steigt zunächst stark an bis Peak flow=100% erreicht ist, danach nimmt der Inspiratory flow langsam wieder ab.
+Ti setzt man, wenn der nun fallende Inspiratory flow einen bestimmten Prozentsatz (typische Werte zwichen 5% und 80%) vom Peak flow erreicht hat.
+Je kleiner dieser Prozentsatz, desto länger ist Ti und umgekehrt. Dieser Prozentsatz heißt -bei Hamilton- exspirational trigger sensitivity (ETS).
+Fördert Synchronisation zwischen Patient und Atemgerät.
+Flow cycling kann fehlschlagen: Bei massiver Leckage im Schlauchsystem und niedrig eingestelltem ETS. Dann ist Ti unendlich lang und das Gerät schaltet nie um.
+Die Steuerung kann jedoch mit einem Backup-time-cycle versehen werden. Bspw. Defintion eines maximalen Ti.
+
+1.3 Controlling
+Mechanismus, wie das Beatmungsgerät die Atemgasabgabe während der Inspirationsphase steuert.
+Das Gerät kann Volumen und Druck nicht gleichzeitig kontrollieren.
+1.3.1 Volume controlling
+Das Gerät kontrolliert den Atemgasflow, der in das Schlauchsystem abgegeben wird. Am Ende der Inspirationsphase ist das Tidalvoumen abgegeben.
+Drei Kontrollparameter: Ti, Vt, Peak flow. Zwei davon können unabhängig voneinander gewählt werden, den dritten Wert berechnet das Gerät.
+Neben einem rechteckprofil gibt es weitere voreingestellte FLow-Kurven, deren Flächeninhalt = Vt ist.
+Vorteile von Volume c.: stabiles Vt und possibly stable minute volume.
+Nachteile:
+Das Beatmungsgerät gibt alle wesentlichen Aspekte der Beatmung vor. Das ist bei aktiven Patienten kaum akzeptabel. Kan zu asynchronem Verhalten von Gerät und Atmung des Patienten führen.
+Das Tidalvolumen, das der Patient erhält, ist stets kleiner als das, welches das Gerät in das Schlauchsystem abgibt. Ursache: Gaskopression in einem elastisch atmenden System. Bspw.
+kann das ins Schaluchsystem abgegebene Volumen 500 ml betregen, während am Patienten nur 450 ml ankommen. Ggf. Compliance-Korrektur notwendig.
+Keine Kompensation von evtl. Leckagen möglich.
+Peak pressure ist variabel und hängt von (zu?) vielen Größen ab: eingestelltes Tidalvoluen Vt, Peak flow, Atemwegs-Widerstand, -Compliance sowie den Atembemühungen des Patienten.
+Ein konstant hoher Peak pressure kann die Lunge schädigen.
+
+1.3.2 Pressure controlling
+Das Gerät erstellt ein Profil für den Zielatemwegsdruck. Während der Inspirationsphase passt das Gerät den Atemgasflow dynamisch an, um die Abweichung des realen Profils zum Zielprofil zu minimieren:
+Durchsatz/Flow wird stark erhöht, wenn aktueller Druck << Zieldruck,
+Durchsatz/Flow wird verkleinert, wenn aktueller Druck wenig unter Zieldruck,
+Durchsatz/Flow wird beendet (=0), wenn aktueller Druck == Zieldruck.
+Zwei wichtige Parameter: Ti und inspiratorischer Druck.
+inspiratorischer Druck = Druck, der über dem PEEP verabreicht wird.
+Der inspiratorische Druck kann zur Steuerung benutzt werden wie auch Pressure ramp = Anstieg des Atemwegdrucks am Beginn der Inspirationsphase.
+Vorteile von Pressure c.: weniger restriktiv: Vt und inspiratorischer Flow können sich dem Patienten anpassen. Weniger asynchrone Artefakte.
+Bei Leckage im Schlauchsystem mit resultierendem Druckabfall reagiert das Beatmungsgerät mit einem Anstieg des inspiratorischen Flows.
+Tidalvolumen Vt: hängt ab vom eingestellten inspiratorischen Druck, Atemwegs-Widerstand, -Compliance sowie den Atembemühungen des Patienten.
+U.U. kann dabei das resultierende Tidalvolumen zu groß oder zu klein sein. Alarming unbedingt notwendig.
+
+1.3.3 Adatpive Controlling
+Best of two worlds: Nutze die Vorteile von Volume controlling und Pressure controlling und minimiere deren Nachteile.
+Variante des Pressure controlling:
+Inspiratory pressure: Set and then fixed in pressure c.; automatisch (breath by breath) reguliert im Adaptive c.
+Resultierendes Tidalvolumen: Variabel (abhängige Größe) in pressure c.; Targeted relativly stable im Adaptive c.
+Arbeitsweise des Geräts:
+Inspiratory pressure wird erhöht, wenn gemessenes Vt < eingestelltes Vt
+Inspiratory pressure wird verkleinert, wenn gemessenes Vt > eingestelltes Vt
+ansonsten wird Inspiratory pressure nicht verändert
+Vorteile: relativ stabiles Tidalvolumen und alle anderen Vorteile des Pressure Controllings.
+Achtung: Der Bediener muss hier mehr tun: das eingestellbare Tidalvolumen ist stets an den Patienten anzupassen
+Probleme: Videosequent ab 22:35
+
+1.3.4 Hybrid Controlling
+Im Video nicht näher besprochen, komplex.
+
+
+
+
+
+	
+
+
+ 
